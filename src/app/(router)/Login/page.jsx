@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Botao from '@/components/Botao/Botao'
 import Link from 'next/link'
+
 import { Navegacao } from '@/components/Navegacao/navegacao'
 
 export default function Login() {
@@ -10,6 +11,13 @@ export default function Login() {
     email: '',
     senha: '',
   })
+
+  const handleChange = (tipo) => (novaSenha) => {
+    setData((prevData) => ({
+      ...prevData,
+      [tipo]: novaSenha,
+    }))
+  }
 
   return (
     <>
@@ -22,12 +30,8 @@ export default function Login() {
           type={'text'}
           placeholder={'Email'}
           value={data.email}
-          onChange={(e) =>
-            setData((prevState) => ({
-              ...prevState,
-              email: e.target.value,
-            }))
-          }
+          setValor={handleChange('email')}
+          tipo={'email'}
         />
 
         <input
@@ -35,12 +39,8 @@ export default function Login() {
           type={'password'}
           placeholder={'Password'}
           value={data.senha}
-          onChange={(e) =>
-            setData((prevState) => ({
-              ...prevState,
-              senha: e.target.value,
-            }))
-          }
+          setValor={handleChange('senha')}
+          tipo={'password'}
         />
 
         <p className={'destaque'}>Esqueci minha senha</p>

@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Navegacao } from '@/components/Navegacao/navegacao'
 import Link from 'next/link'
 import Botao from '@/components/Botao/Botao'
+import Campo from '@/components/Campo/Campo'
 
 export default function Cadastro() {
   const [data, setData] = useState({
@@ -11,47 +12,37 @@ export default function Cadastro() {
     senha: '',
     confirmar_senha: '',
   })
+
+  const handleChange = (tipo) => (novaSenha) => {
+    setData((prevData) => ({
+      ...prevData,
+      [tipo]: novaSenha,
+    }))
+  }
+
   return (
     <>
       <Navegacao lastUrl={'/Login'} closeUrl={'/'} />
+
       <div className='Form_login'>
         <h1>Cadastro</h1>
-        <input
-          className={'Campo'}
-          type={'text'}
+        <Campo
           placeholder={'Email'}
-          value={data.email}
-          onChange={(e) =>
-            setData((prevState) => ({
-              ...prevState,
-              email: e.target.value,
-            }))
-          }
+          valor={data.email}
+          setValor={handleChange('email')}
+          tipo={'email'}
         />
-
-        <input
-          className={'Campo'}
-          type={'password'}
-          placeholder={'Password'}
-          value={data.senha}
-          onChange={(e) =>
-            setData((prevState) => ({
-              ...prevState,
-              senha: e.target.value,
-            }))
-          }
+        <Campo
+          placeholder={'senha'}
+          valor={data.senha}
+          setValor={handleChange('senha')}
+          tipo={'password'}
         />
-        <input
-          className={'Campo'}
-          type={'password'}
-          placeholder={'Confirm Password'}
-          value={data.confirmar_senha}
-          onChange={(e) =>
-            setData((prevState) => ({
-              ...prevState,
-              confirmar_senha: e.target.value,
-            }))
-          }
+        <Campo
+          placeholder={'confirmar_senha'}
+          valor={data.confirmar_senha}
+          setValor={handleChange('confirmar_senha')}
+          tipo={'password'}
         />
 
         <Botao>Criar Conta</Botao>

@@ -8,5 +8,5 @@
   "arrowParens": "always",
   "jsxSingleQuote": true,
   "singleQuote": true,
-  "printWidth": 120
+  "printWidth": 80
 }

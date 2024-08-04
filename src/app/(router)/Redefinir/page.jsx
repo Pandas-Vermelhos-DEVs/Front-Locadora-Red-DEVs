@@ -5,27 +5,21 @@ import Campo from '@/components/Campo/Campo'
 
 export default function RedefinirSenha() {
   const [data, setData] = useState({
-    senha: 'senha ',
-    novasenha: 'nova senha',
+    senha: '',
+    novasenha: '',
   })
 
-  //   console.log(data)
-  // console.log(setData)
+  const handleChange = (tipo) => (novaSenha) => {
+    setData((prevData) => ({
+      ...prevData,
+      [tipo]: novaSenha,
+    }))
+  }
+
   return (
     <div>
-      <Campo
-        senha={data.senha}
-        novaSenha={data.novasenha}
-        setValor={setData}
-        placeholder={'testando'}
-        {...data}
-      />
-      {/* <Campo
-        valor={data}
-        setValor={setData}
-        placeholder={"testando"}
-        {...data}
-      /> */}
+      <Campo valor={data.senha} setValor={handleChange('senha')} placeholder={'digite uma senha'} tipo='password' />
+      <Campo valor={data.novasenha} setValor={handleChange('novasenha')} placeholder={'repita a nova senha'}  tipo='password'/>
     </div>
   )
 }
