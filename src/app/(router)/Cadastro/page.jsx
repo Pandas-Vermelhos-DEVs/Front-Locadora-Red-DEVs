@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { Navegacao } from '@/components/Navegacao/navegacao'
-import Link from 'next/link'
 import Botao from '@/components/Botao/Botao'
 import Campo from '@/components/Campo/Campo'
 

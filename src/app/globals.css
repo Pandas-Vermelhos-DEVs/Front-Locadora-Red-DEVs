@@ -3,9 +3,6 @@
 @tailwind utilities; */
 
 :root {
-  --font-primary: 'Montserrat', sans-serif;
-  --font-secudary: 'Anton', sans-serif;
-
   --bg-primary: linear-gradient(#38383b, #28272b);
 
   --color-primary: #ffffff;
