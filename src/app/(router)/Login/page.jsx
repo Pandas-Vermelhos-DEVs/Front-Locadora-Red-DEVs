@@ -1,16 +1,27 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Botao from '@/components/Botao/Botao'
 import Link from 'next/link'
 
 import { Navegacao } from '@/components/Navegacao/navegacao'
+import Campo from '@/components/Campo/Campo'
+import { Loader } from '@/components/Loadear'
 
 export default function Login() {
   const [data, setData] = useState({
     email: '',
     senha: '',
   })
+
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 1500)
+  }, [loading])
+
 
   const handleChange = (tipo) => (novaSenha) => {
     setData((prevData) => ({
@@ -21,35 +32,38 @@ export default function Login() {
 
   return (
     <>
-      <Navegacao lastUrl={'/'} closeUrl={'/'} />
+      {
+        loading ?
+          <>
+            <Loader />
+          </>
+          :
+          <>
+            <Navegacao lastUrl={'/'} closeUrl={'/'} />
+            <div className='flex flex-col justify-between items-center h-[350px]'>
+              <h1 className={'text-2xl font-bold'}>Login</h1>
+              <Campo
+                placeholder={'Email'}
+                valor={data.email}
+                setValor={handleChange('email')}
+                tipo={'email'}
+              />
+              <Campo
+                placeholder={'senha'}
+                valor={data.senha}
+                setValor={handleChange('senha')}
+                tipo={'password'}
+              />
+              <p className='text-destaque'>Esqueci minha senha</p>
+              <Botao>Entrar</Botao>
+              <p className='text-destaque'>ou</p>
+              <Link href={'/Cadastro'}>
+                <Botao>Cadastre-se</Botao>
+              </Link>
+            </div>
+          </>
+      }
 
-      <div className='Form_login'>
-        <h1>Login</h1>
-        <input
-          className={'Campo'}
-          type={'text'}
-          placeholder={'Email'}
-          value={data.email}
-          setValor={handleChange('email')}
-          tipo={'email'}
-        />
-
-        <input
-          className={'Campo'}
-          type={'password'}
-          placeholder={'Password'}
-          value={data.senha}
-          setValor={handleChange('senha')}
-          tipo={'password'}
-        />
-
-        <p className={'destaque'}>Esqueci minha senha</p>
-        <Botao>Entrar</Botao>
-        <p className={'destaque'}>ou</p>
-        <Link href={'/Cadastro'}>
-          <Botao>Cadastre-se</Botao>
-        </Link>
-      </div>
     </>
   )
 }

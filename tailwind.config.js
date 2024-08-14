@@ -1,5 +1,7 @@
 // tailwind.config.js
 
+import { transform } from "next/dist/build/swc"
+
 export const content = [
   './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
   './src/components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -47,8 +49,44 @@ export const theme = {
       quinta: '#5f5f5f',
 
       /* Cor de fundo gradiente*/
-      background: 'linear-gradient(#38383b, #28272b)',
+      first_color_gradient: '#38383b',
+      second_color_gradient: '#28272b',
+
+      /* Cor de fundo gradiente-loader*/
+      first_color_gradientl: '#8C8C94',
+      second_color_gradientl: '#404043',
+      third_color_gradientl: '#2B2B2E',
+
+      color_placeholder: '#5f5f5f',
+
     },
+    
   },
+  keyframes: {
+    "flutuar": {
+      "0%": {
+        top: 0,
+      },
+      "100%": {
+        top: 10,
+      }
+    },
+
+    "spin": {
+      "0%": {
+        transform:'rotate(0deg)',
+      },
+      "100%": {
+        transform:'rotate(360deg)' ,
+      }
+    },
+
+    
+    
+  },
+  animation: {
+    "flutuar": "flutuar alternate linear .8s infinite",
+    "spin": "spin 2s linear infinite",
+  }
 }
 export const plugins = []
