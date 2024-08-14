@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export const Navegacao = ({ lastUrl, closeUrl }) => {
   return (
-    <div className='flex top[-30%] justify-between relative'>
+    <div className='flex justify-between w-[100%] px-8'>
       <Link href={lastUrl}>
         <LuSkipBack size={30} />
       </Link>
