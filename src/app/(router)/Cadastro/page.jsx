@@ -1,4 +1,5 @@
 'use client'
+
 import { useState } from 'react'
 import { Navegacao } from '@/components/Navegacao/navegacao'
 import Botao from '@/components/Botao/Botao'
@@ -28,18 +29,22 @@ export default function Cadastro() {
   //     .catch((err) => console.log(err))
   // }
 
-  async function RegistrarUsuario() {
-    // console.log(2)
-    try {
-      const response = await api.post('/register', data)
-      console.log(response)
-    } catch (error) {
-      if (error.code === 'ECONNABORTED') {
-        console.log('Requisição abortada devido ao timeout.')
-      } else {
-        console.log('Outro erro ocorreu:', error.message)
-      }
-    }
+  // async function RegistrarUsuario() {
+  //   // console.log(2)
+  //   try {
+  //     const response = await api.post('/register', data)
+  //     console.log(response)
+  //   } catch (error) {
+  //     if (error.code === 'ECONNABORTED') {
+  //       console.log('Requisição abortada devido ao timeout.')
+  //     } else {
+  //       console.log('Outro erro ocorreu:', error.message)
+  //     }
+  //   }
+  // }
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    console.log(data)
   }
 
   return (
@@ -47,7 +52,7 @@ export default function Cadastro() {
       <Navegacao lastUrl={'/Login'} closeUrl={'/'} />
       <form
         className={'flex flex-col justify-between items-center h-[350px]'}
-        onSubmit={RegistrarUsuario}>
+        onSubmit={handleSubmit}>
         <h1 className={'text-2xl font-bold'}>Cadastro</h1>
         <Campo
           placeholder={'Email'}
@@ -67,13 +72,7 @@ export default function Cadastro() {
           setValor={handleChange('confirmar_senha')}
           tipo={'password'}
         /> */}
-
-        {/* <Botao>Criar Conta</Botao> */}
-        <button
-          className='bg-button border-none py-[0.5rem] px-[2rem]'
-          type='submit'>
-          Criar Conta
-        </button>
+        <Botao>Criar Conta</Botao>
       </form>
     </PaginaPadrao>
   )
