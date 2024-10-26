@@ -13,11 +13,11 @@ export const PaginaPadrao = ({ children }) => {
   return (
     <>
       {
-        loading ?
+      /*   loading ?
           <>
             <Loader />
           </>
-          :
+          : */
           <>{children}</>
       }
     </>
