@@ -1,7 +1,38 @@
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
+import LinkNavigation from './LinkNavigation';
 
 const Navegation = ({ isOpen, setIsOpen }) => {
+
+  const linksNavigation = [
+    {
+      titulo: 'Carrinho',
+      src: '/carrinho.svg',
+      alt:'carrinho'
+    },
+    {
+      titulo: 'Décadas',
+      src: '/film.svg',
+      alt:'filme'
+    },
+    {
+      titulo: 'Gêneros',
+      src: '/film.svg',
+      alt:'filme'
+    },
+    {
+      titulo: 'Locadoras',
+      src: '/sacola.svg',
+      alt:'sacola'
+    },
+    {
+      titulo: 'Sobre nós',
+      src: '/sobre.svg',
+      alt:'livro'
+    },
+
+  ]
+
   return (
     <>
       <div className='top-0 z-[1000] fixed h-full w-full bg-slate-600 opacity-70 cursor-pointer' onClick={() => setIsOpen(!isOpen)} ></div>
@@ -13,6 +44,7 @@ const Navegation = ({ isOpen, setIsOpen }) => {
                 src={'/person.png'}
                 height={67}
                 width={54}
+                alt='perfil'
               />
             </div>
             <p>Username</p>
@@ -20,49 +52,9 @@ const Navegation = ({ isOpen, setIsOpen }) => {
 
         </div>
         <ul>
-          <li className=' px-4 border-b-2 h-[80px] flex items-center gap-2'>
-            <Image
-              src={'/carrinho.svg'}
-              height={25}
-              width={25}
-            />
-            Carrinho
-
-          </li>
-          <li className=' px-4 border-b-2 h-[80px] flex items-center gap-2'>
-          <Image
-              src={'/film.svg'}
-              height={25}
-              width={25}
-            />
-            Décadas
-          </li>
-          <li className=' px-4 border-b-2 h-[80px] flex items-center gap-2'>
-          <Image
-              src={'/film.svg'}
-              height={25}
-              width={25}
-            />
-            Gêneros
-
-          </li>
-          <li className=' px-4 border-b-2 h-[80px] flex items-center gap-2'>
-          <Image
-              src={'/sacola.svg'}
-              height={25}
-              width={25}
-            />
-            Locadoras
-
-          </li>
-          <li className=' px-4 border-b-2 h-[80px] flex items-center gap-2'>
-          <Image
-              src={'/sobre.svg'}
-              height={25}
-              width={25}
-            />
-            Sobre nós
-          </li>
+          {linksNavigation.map((link,index)=>(
+            <LinkNavigation {...link} index={index + 1}/>
+          ))}
         </ul>
       </div>
     </>

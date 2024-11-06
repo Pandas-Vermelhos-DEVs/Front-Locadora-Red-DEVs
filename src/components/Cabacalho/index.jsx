@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 
 const Cabacalho = ({isOpen,setIsOpen}) => {
+
   return (
     <header className='w-full bg-slate-500 fixed flex items-center justify-between py-2 px-4 top-0 z-[999]'>
       <div onClick={()=> setIsOpen(!isOpen)}>

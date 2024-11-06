@@ -38,6 +38,8 @@ export default function Home() {
         <ContainerFilmes titulo={'Vencedores do Oscar'} />
         <ContainerFilmes titulo={'Nostalgia'} />
 
+        {/* Observação: Sobre as partes escritas em html caso queira  pode ser realizada a criação de partes reaproveitaveis para outras paginas por exemplo ter um banner unico para cade pagina banner está localizado na parte acima dos containers*/}
+
         <div className=' mt-8 flex flex-col gap-8 p-4 bg-[url("/bg_home_locadora_sobre.png")] bg-cover bg-no-repeat'>
           <section className='flex flex-col items-center'>
             <Image
@@ -47,15 +49,14 @@ export default function Home() {
             />
             <Botao>VER MAIS</Botao>
           </section>
+  
           <section className='flex flex-col items-center '>
             <div className='relative'>
               <Image
                 src={'/sobre.png'}
                 height={540}
                 width={520}
-
               />
-
             </div>
             <Botao>Sobre nós</Botao>
           </section>
