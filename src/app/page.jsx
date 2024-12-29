@@ -13,24 +13,20 @@ export default function Home() {
   return (
     <PaginaPadrao>
       <Cabacalho isOpen={isOpen} setIsOpen={setIsOpen} />
-      {
-        isOpen ? <Navegation isOpen={isOpen} setIsOpen={setIsOpen} /> : ''
-      }
-      <main >
+      {isOpen ? <Navegation isOpen={isOpen} setIsOpen={setIsOpen} /> : ''}
+      <main>
         <div className='h-[100vh] bg-[url("/bg_home.png")] bg-cover bg-no-repeat'>
           <div className=' h-full gap-4 flex flex-col items-center justify-end'>
             <div className='text-center'>
-              <h1 className='text-5xl font-bold font-anton uppercase'>Titanic</h1>
+              <h1 className='text-5xl font-bold font-anton uppercase'>
+                Titanic
+              </h1>
               <p>Garanta sua fita</p>
             </div>
             <Botao>Compre Agora</Botao>
             <div className='mt-5 text-destaque flex flex-col items-center'>
               <p>Veja mais Filmes</p>
-              <Image
-                src={'/arrow_drop_up.svg'}
-                height={67}
-                width={54}
-              />
+              <Image src={'/arrow_drop_up.svg'} height={67} width={54} />
             </div>
           </div>
         </div>
@@ -42,29 +38,18 @@ export default function Home() {
 
         <div className=' mt-8 flex flex-col gap-8 p-4 bg-[url("/bg_home_locadora_sobre.png")] bg-cover bg-no-repeat'>
           <section className='flex flex-col items-center'>
-            <Image
-              src={'/locadora.png'}
-              height={540}
-              width={520}
-            />
+            <Image src={'/locadora.png'} height={540} width={520} />
             <Botao>VER MAIS</Botao>
           </section>
-  
+
           <section className='flex flex-col items-center '>
             <div className='relative'>
-              <Image
-                src={'/sobre.png'}
-                height={540}
-                width={520}
-              />
+              <Image src={'/sobre.png'} height={540} width={520} />
             </div>
             <Botao>Sobre nós</Botao>
           </section>
         </div>
-
       </main>
-
-
     </PaginaPadrao>
   )
 }

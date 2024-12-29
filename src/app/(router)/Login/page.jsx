@@ -1,6 +1,6 @@
 'use client'
 
-import {  useState } from 'react'
+import { useState } from 'react'
 import Botao from '@/components/Botao/Botao'
 import Link from 'next/link'
 import { Navegacao } from '@/components/Navegacao/navegacao'
@@ -37,7 +37,9 @@ export default function Login() {
           setValor={handleChange('senha')}
           tipo={'password'}
         />
-        <Link href={'/Redefinir'} className={'text-destaque underline'}>Esqueci minha Senha</Link>
+        <Link href={'/Redefinir'} className={'text-destaque underline'}>
+          Esqueci minha Senha
+        </Link>
         <Botao>Entrar</Botao>
         <p className='text-destaque'>ou</p>
         <Link href={'/Cadastro'}>

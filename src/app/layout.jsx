@@ -24,7 +24,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body className={`${montserrat.className} bg-gradient-to-b from-first_color_gradient to-second_color_gradient text-branco`}>{children}</body>
+      <body
+        className={`${montserrat.className} bg-gradient-to-b from-first_color_gradient to-second_color_gradient text-branco`}>
+        {children}
+      </body>
     </html>
   )
 }

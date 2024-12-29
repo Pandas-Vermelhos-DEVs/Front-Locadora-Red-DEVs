@@ -24,7 +24,7 @@ export default function RedefinirSenha() {
       <Navegacao lastUrl={'/Login'} closeUrl={'/'} />
       <div className={'flex flex-col justify-between items-center h-[350px]'}>
         <h1 className={'text-2xl font-bold'}>Redefinir Senha</h1>
-       
+
         <Campo
           placeholder={'senha'}
           valor={data.senha}

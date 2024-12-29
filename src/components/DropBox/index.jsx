@@ -1,9 +1,8 @@
-import Link from 'next/link';
-import React from 'react';
+import Link from 'next/link'
+import React from 'react'
 
 const DropBox = ({ lista, open }) => {
-
-  if (!open) return null;
+  if (!open) return null
 
   return (
     <ul className=''>
@@ -15,7 +14,7 @@ const DropBox = ({ lista, open }) => {
         </Link>
       ))}
     </ul>
-  );
-};
+  )
+}
 
-export default DropBox;
+export default DropBox
