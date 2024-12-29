@@ -7,10 +7,8 @@ const DropBox = ({ lista, open }) => {
   return (
     <ul className=''>
       {lista.map((item, index) => (
-        <Link href={'#'}>
-          <li className='p-4 border-b-2' key={index}>
-            {item}
-          </li>
+        <Link href={'#'} key={index}>
+          <li className='p-4 border-b-2'>{item}</li>
         </Link>
       ))}
     </ul>
